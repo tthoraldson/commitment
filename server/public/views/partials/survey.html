@@ -1,0 +1,68 @@
+<div class="main_container">
+  <form ng-model="surveyForm">
+    <h1 class="currentSurvey_title">{{currentSurvey.form_title}}</h1> <br />
+    <h3 class="currentSurvey_descTitle">{{currentSurvey.form_description}}</h3> <br />
+    <div ng-repeat="question in currentSurvey.form_questions">
+      <h3 class="currentSurvey_questionTitle">{{question.title}}</h3>
+      <!-- {{question.type)}} -->
+      <div class="currentSurvey_option" ng-if="question.type != 'shortAnswer'" ng-repeat="option in question.options">
+        <input type="checkbox" ng-model="option.check"/> {{option.title}}
+      </div>
+      <div ng-if="question.type == 'shortAnswer'">
+        <input class="currentSurvey_textInput" type="text" ng-model="question.shortAnswer"/> {{option.title}}
+      </div>
+    </div>
+
+  <button class="currentSurvey_submit tab" style="margin-top: 10px;" type="submit" ng-click="submitForm(currentSurvey)">SUBMIT</button>
+  </form>
+</div>
+
+
+<div class="popOut" ng-if="firstLogIn">
+
+  <div class="questionsBox">
+    <div class="firstLogTitle">
+      <h2>Welcome to the Github Challenge!</h2>
+      <h3 style="margin-bottom: 10px;">Before you begin, please provide your full name and preffered email address.</h3>
+    </div>
+    <div class="firstLogQuestion">
+      <input type="text" ng-model="firstLog.name" placeholder="Full Name"/>
+    </div>
+    <div class="firstLogQuestion">
+      <input type="email" ng-model="firstLog.email" placeholder="Preferred Email"/>
+    </div>
+    <div class="firstLogQuestion">
+      <button class="tab" type="submit" ng-click="updateUser(firstLog)">Submit</button>
+    </div>
+  </div>
+</div>
+
+<div class="popOut" ng-if="showThanks">
+  <div class="questionsBox">
+      <div class="firstLogTitle">
+        <h2>Thanks {{newName}} for submitting!</h2>
+        <h3 style="padding-bottom: 25px;">Please fill out the following form to take part in the next sprint!</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popOut" ng-if="askLogin">
+  <div class="questionsBox">
+      <div class="firstLogTitle">
+        <h2>Please login to take the survey!</h2>
+        <button class="tab" style="margin-bottom: 25px;" type="submit" ng-click="login()">Login</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="popOut" ng-if="thankYou">
+  <div class="questionsBox">
+      <div class="firstLogTitle">
+        <h2>Thank you for submitting your form!</h2>
+        <h3 style="padding-bottom: 25px;">Good luck on your coding journey!</h3>
+      </div>
+    </div>
+  </div>
+</div>
