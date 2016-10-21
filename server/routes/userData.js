@@ -303,13 +303,12 @@ router.post('/sprint/:uname', function(req, res) {
 
 // GET ENTIRE LAWN COMMITS!
 router.put('/lawn/update', function(req, res) {
-    //console.log('THE REQ BOY', req.body);
+    console.log('THE REQ BOY', req.body);
     var uname = req.body.github_url;
     var githubUname = uname.substring(19);
     var swagArray = [];
     var sitepage = null;
     var phInstance = null;
-
     phantom.create()
         .then(instance => {
             phInstance = instance;
@@ -320,72 +319,52 @@ router.put('/lawn/update', function(req, res) {
             return page.open('https://github.com/users/' + githubUname + '/contributions');
         })
         .then(status => {
-            //console.log(status);
-
+            console.log(status);
             return sitepage.property('content');
         })
         .then(content => {
             swagArray = content.split('\n');
-
+            //goes through html and splits by \n then searches for the data-count and data-date info to push to db.
             var tempArray = [];
-            swagArray.forEach(function(line) {
-                if (line.substring(11, 14) == "rec") {
-                    var templine = line.substring(84);
-                    var templine2 = ""
-                    if (templine[0] == 'c') {
-                        templine = templine.substring(1);
-                    } else if (templine[0] == '-') {
-                        templine = templine.substring(2);
-                    } else if (templine[0] == 'a') {
-                        templine = templine.substring(3);
-                    }
-
-                    templine = templine.substring(6); // commits
-                    templine2 = templine.substring(14, 24); // date
-                    templine = templine[0];
-                    tempArray.push({
-                        data: templine,
-                        date: templine2
-                    });
+            swagArray.forEach(function(str) {
+                // console.log(str);
+                var searchin = str.search('date="'); //finds index of string that 'date=' begins
+                var searchin2 = str.search('count="'); //finds index of string that 'count=' begins
+                var templine = str.substring(searchin + 5);
+                var templine2 = str.substring(searchin2 + 6);
+                var theDate = templine.substring(0, 11);
+                if (templine[0] == '"'){
+                  console.log('templine1', templine.substring(1, 11)); //dates are 10 chars long
+                  console.log('templine2', templine2.substring(1, 2)); //commits even if > 10, first digit always >0;
+                  tempArray.push({
+                      data: templine2.substring(1, 2),
+                      date: templine.substring(1, 11)
+                  });
                 }
             });
-
-            // finds the data matching today's date!
-            // var foundObject = tempArray.find(findObject);
-
-            //
-
             pg.connect(connectionString, function(err, client, done) {
-                //console.log('ITS HEREConnecting to: ', connectionString);
+                console.log('ITS HEREConnecting to: ', connectionString);
                 if (err) {
                     res.sendStatus(500);
-                    //console.log("error");
+                    console.log("error");
                 }
-
                 // var user = req.body;
-
-
-                //console.log('LINE 428!!!!')
+                console.log('LINE 428!!!!')
                 client.query("DELETE FROM user_lawns WHERE github = " + "'" + githubUname + "'",
                     function(err, result) {
                         done();
                         if (err) {
                             res.sendStatus(500);
-                            //console.log('error: ', err);
+                            console.log('error: ', err);
                         }
-
-                        //console.log('DELETED USER LAWN DATA');
+                        console.log('DELETED USER LAWN DATA: ', githubUname);
                         tempArray.forEach(function(commitObject) {
-
-
-
                             pg.connect(connectionString, function(err, client, done) {
-                                //console.log('ADDING UPDATED USER LAWN DATA');
+                                // console.log('ADDING UPDATED USER LAWN DATA');
                                 if (err) {
                                     res.sendStatus(500);
-                                    //console.log("error");
+                                    console.log("error");
                                 }
-
                                 var user = req.body;
                                 var didCommit = false;
                                 if (commitObject.data > 0) {
@@ -396,14 +375,12 @@ router.put('/lawn/update', function(req, res) {
                                         done();
                                         if (err) {
                                             res.sendStatus(500);
-                                            //console.log('error: ', err);
+                                            console.log('error: ', err);
                                         }
-
-                                        //console.log('');
+                                        console.log('');
                                         // res.send(result.rows)
                                     })
                             })
-
                         });
                         res.send({
                             data: tempArray
@@ -416,7 +393,7 @@ router.put('/lawn/update', function(req, res) {
             phInstance.exit();
         })
         .catch(error => {
-            //console.log(error);
+            console.log(error);
             phInstance.exit()
         })
 });

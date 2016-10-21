@@ -68,7 +68,17 @@ github varchar(50), -- realational mark
 team varchar(50)
 );
 
+CREATE TABLE s2_teams (
+id SERIAL PRIMARY KEY,
+github varchar(50), -- realational mark
+team varchar(50)
+);
 
+CREATE TABLE s2_data (
+github varchar(50), -- relational mark
+date varchar(12),
+commits boolean
+);
 
 
 -- SPRINT 2 TEAM TABLE!!
