@@ -3,81 +3,86 @@
 }
 
 @font-face {
-  font-family: crapaud_petit;
-  src: url('../styles/fonts/crapaud_petit.otf');
+    font-family: crapaud_petit;
+    src: url('../styles/fonts/crapaud_petit.otf');
 }
 
-@font-face{
-  font-family: Interstate-Light;
-  src: url('../styles/fonts/InterState/Interstate-Light.otf');
+@font-face {
+    font-family: Interstate-Light;
+    src: url('../styles/fonts/InterState/Interstate-Light.otf');
 }
 
-#logoWords{
-  font-family: 'crapaud_petit', sans-serif;
-  font-size: 14px;
-  color: white;
-  font-weight: bold;
-  /* font-weight: bold; */
-  position: absolute;
-  top: 36px;
-  left: 49px;
-  -webkit-transform: translate(0%, -50%);
-  /* border: 1px solid black; */
+#logoWords {
+    font-family: 'crapaud_petit', sans-serif;
+    font-size: 14px;
+    color: white;
+    font-weight: bold;
+    /* font-weight: bold; */
+    position: absolute;
+    top: 36px;
+    left: 49px;
+    -webkit-transform: translate(0%, -50%);
+    /* border: 1px solid black; */
 }
 
-#logo{
-  margin-left: 5px;
-  /* margin-bottom: 10px; */
-  margin-top: 14px;
-  width: 40px;
-  height: 40px;
-  /* opacity: .5; */
+#logo {
+    margin-left: 5px;
+    /* margin-bottom: 10px; */
+    margin-top: 14px;
+    width: 40px;
+    height: 40px;
+    /* opacity: .5; */
 }
 
-.formInput_option{
-  width: 150px;
-  height: 40px;
+.formInput_option {
+    width: 150px;
+    height: 40px;
 }
 
-.indexCounter{
-  width: 50px;
-  padding-left: 10px;
-  display: inline-block;
-  padding-left: 10px;
-  font-size: 15px;
-}
-.inputButtonThing{
-  margin-left: 7px !important;
-}
-.choiceDescription{
-  width: 300px;
-  height: 40px;
-}
-.formCurrentTitle{
-  color: black;
+.indexCounter {
+    width: 50px;
+    padding-left: 10px;
+    display: inline-block;
+    padding-left: 10px;
+    font-size: 15px;
 }
 
-.surveyTitle{
-  height: 40px;
-  width: 600px;
-  display: block;
+.inputButtonThing {
+    margin-left: 7px !important;
+}
+
+.choiceDescription {
+    width: 300px;
+    height: 40px;
+}
+
+.formCurrentTitle {
+    color: black;
+}
+
+.surveyTitle {
+    height: 40px;
+    width: 600px;
+    display: block;
     padding-left: 10px;
 }
 
-.questionTitle{
-  height: 40px;
-  width: 600px;
-  display: block;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+.questionTitle {
+    height: 40px;
+    width: 600px;
+    display: block;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }
-.surveyDescription{
-  height: 40px;
-  width: 600px;
-  display: block;
-  padding-left: 10px;
+
+.surveyDescription {
+    height: 40px;
+    width: 600px;
+    display: block;
+    padding-left: 10px;
 }
+
 .popupBackground {
     position: fixed;
     width: 1000%;
@@ -115,11 +120,10 @@
     border-radius: 7.25px;
 }
 
+
 /*#siteTitle {
     color: white;
 }*/
-
-
 
 .createNewSurvey {
     width: 100%;
@@ -133,8 +137,7 @@
     border-radius: 2.5px;
     box-shadow: 2.5px 2.5px 2.5px grey;
     font-weight: bold;
-  }
-
+}
 
 .createNewSurvey:hover {
     color: white;
@@ -176,7 +179,7 @@ a {
 }
 
 main * {
-        font-family: 'Interstate-Light', sans-serif;
+    font-family: 'Interstate-Light', sans-serif;
     font-weight: 300;
 }
 
@@ -185,7 +188,6 @@ main * {
     /*float: left;*/
     /*margin-left: 5px;*/
 }
-
 
 .sprintTabResults {
     /*display: inline;*/
@@ -233,13 +235,11 @@ main * {
     cursor: pointer;
 }
 
-.sprintLaunch{
+.sprintLaunch {
     display: block;
-  width: 100%;
-  margin: auto;
-  font-size: 14px !important;
-
-
+    width: 100%;
+    margin: auto;
+    font-size: 14px !important;
 }
 
 .activeMemberTab {
@@ -253,25 +253,23 @@ main * {
 }
 
 .sprintTab {
-  color: black;
-  cursor: pointer;
-  border-radius: 2.5px;
-  width: 210px !important;
-  margin-top: 10px;
-  height: 25px;
-  padding-top: 2px;
-  /*font-weight: bold;*/
-
+    color: black;
+    cursor: pointer;
+    border-radius: 2.5px;
+    width: 210px !important;
+    margin-top: 10px;
+    height: 25px;
+    padding-top: 2px;
+    /*font-weight: bold;*/
 }
 
 .sprintTab:hover {
     color: white;
     background-color: #45AA9E;
-
 }
 
 .activeSurveyResultButton {
-  display: inline;
+    display: inline;
 }
 
 .activeTab {
@@ -307,9 +305,8 @@ main * {
 }
 
 .memRow {
-    height: 45px;
-    padding-top: 5px;
-    padding-bottom: 8px;
+    /*height: 45px;*/
+    padding: 1%;
 }
 
 .teamHeader {
@@ -323,18 +320,18 @@ main * {
     margin: 0;
 }
 
-.confirmButton{
-  margin: .5%;
-  text-align: center;
-  display: inline-block;
-  color: white;
-  background-color: black;
-  cursor: pointer;
-  border-radius: 2.5px;
-  box-shadow: 2.5px 2.5px 2.5px grey;
-  padding: .5%;
-  white-space: nowrap;
-  font-size: 14px !important;
+.confirmButton {
+    margin: .5%;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 2.5px;
+    box-shadow: 2.5px 2.5px 2.5px grey;
+    padding: .5%;
+    white-space: nowrap;
+    font-size: 14px !important;
 }
 
 .confirmButton:hover {
@@ -348,18 +345,18 @@ main * {
     box-shadow: none;
 }
 
-.dataButton{
-  width: 200px;
-  margin: 0;
-  margin-top: .1%;
-  text-align: center;
-  display: inline-block;
-  color: white;
-  background-color: black;
-  cursor: pointer;
-  border-radius: 2.5px;
-  font-weight:lighter;
-  margin-left:20%
+.dataButton {
+    width: 200px;
+    margin: 0;
+    margin-top: .1%;
+    text-align: center;
+    display: inline-block;
+    color: white;
+    background-color: black;
+    cursor: pointer;
+    border-radius: 2.5px;
+    font-weight: lighter;
+    margin-left: 20%
 }
 
 .dataButton:hover {
@@ -373,8 +370,9 @@ main * {
 }
 
 .currentSurvey_title {
-  color: black;
+    color: black;
 }
+
 .editable {
     font-size: 1.2em;
     /*color: black;*/
@@ -421,6 +419,10 @@ h3 {
     width: 20%;
 }
 
+.display_name:hover {
+
+}
+
 .iconCol {
     width: 3.5%;
     cursor: pointer;
@@ -447,7 +449,7 @@ h3 {
 }
 
 .imgBox {
-    display: none;
+    cursor: default;
 }
 
 .fa {
@@ -455,9 +457,10 @@ h3 {
 }
 
 .imgAutoResize {
-    max-width: 1.17em;
-    height: auto;
-    width: auto;
+    /*max-width: 2em;*/
+    max-height: 100%;
+    max-width: 100%;
+    padding: 2%;
     /*background-color: pink;*/
 }
 
@@ -486,9 +489,10 @@ h3 {
     padding-bottom: 50px;
 }
 
-.newOption{
-  margin-left: 55px;
+.newOption {
+    margin-left: 55px;
 }
+
 h3 {
     margin: 0;
 }
@@ -571,112 +575,114 @@ h1 {
 }
 
 .sprint_option {
-  /*position: absolute;*/
-  /*left: 0;*/
-  padding-top: 5px;
-  width: 1000px;
+    /*position: absolute;*/
+    /*left: 0;*/
+    padding-top: 5px;
+    width: 1000px;
     /*height: 50px;*/
-  border-top: 1px solid black;
-  border-bottom: .5px solid black;
-  background-color: #DAE5E3;
-  text-align: center;
-  cursor: pointer;
-  margin: auto;
+    border-top: 1px solid black;
+    border-bottom: .5px solid black;
+    background-color: #DAE5E3;
+    text-align: center;
+    cursor: pointer;
+    margin: auto;
 }
 
 .emailForm {
     text-align: center;
 }
 
+
 /*=====TEMP ACTIVE EMAIL SELECTORS======*/
 
 .active {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active1 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active2 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active3 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active4 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active5 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active6 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active7 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active8 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active9 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
 
 .active10 {
-  background: teal;
-  border: 1px solid teal;
-  border-radius: 150px;
-  padding: 3.5px;
-  margin: 0;
+    background: teal;
+    border: 1px solid teal;
+    border-radius: 150px;
+    padding: 3.5px;
+    margin: 0;
 }
+
 
 /*==========NAV BUTTONS========*/
 
@@ -719,6 +725,7 @@ h1 {
     background-color: #45AA9E;
 }
 
+
 /*.topNavContainer a:active {
     color: white;
     font-weight: bold;
@@ -737,7 +744,6 @@ h1 {
     font-size: 1.8em;
     font-weight: normal;
     border-radius: 2.5px;
-
 }
 
 .dashButton {
@@ -769,7 +775,6 @@ h1 {
 .exitFullscreen {
     font: 200 20px/145px;
     font-family: 'Interstate-Light', sans-serif;
-
     text-align: center;
     text-transform: uppercase;
     color: white;
@@ -835,19 +840,19 @@ h1 {
 /*==========CHARTMANDER========*/
 
 #chart {
-  position: absolute;
-  display: block;
-  /* z-index: 999; */
-  border: .5px solid black;
-  left: 0;
-  width: 1000px;
-  margin: auto;
-  overflow-x: scroll;
-  background-color: #DAE5E3;
-  text-align: center;
-  -webkit-transform: translate(-50%, -50%);
-  top: 250px;
-  left: 50%;
+    position: absolute;
+    display: block;
+    /* z-index: 999; */
+    border: .5px solid black;
+    left: 0;
+    width: 1000px;
+    margin: auto;
+    overflow-x: scroll;
+    background-color: #DAE5E3;
+    text-align: center;
+    -webkit-transform: translate(-50%, -50%);
+    top: 250px;
+    left: 50%;
 }
 
 path {
@@ -880,4 +885,24 @@ path {
     background-color: #4a4a4a;
     color: #FFF;
     cursor: pointer;
+}
+
+
+/* Tooltip text */
+.tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.display_name:hover .tooltiptext {
+    visibility: visible;
 }

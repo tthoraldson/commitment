@@ -290,6 +290,18 @@ $scope.isActive10 = !$scope.isActive10;
 
     $http.get('/newRoute/users').then(function(data){
       $scope.userData = data.data;
+      console.log("$scope.userData et all: ", $scope.userData);
+
+      // extracts github username from profile url, assigns username property to data Obj
+        data.data.forEach(function(value, i){
+        // console.log("$scope.userData et all urls: ", value.github_url);
+        var url = value.github_url;
+        $scope.githubUser = url.slice(19);
+        // console.log("username: ", $scope.githubUser);
+        data.data[i].username = $scope.githubUser;
+        // console.log("data: ", data.data);
+      })
+
     })
 
     // getData('sprint2').then(function(data) {
