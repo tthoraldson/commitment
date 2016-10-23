@@ -1,3 +1,8 @@
+///////////////////////////////////////////////////////////////////
+//                                                               //
+//                      DEM DIRECTIVES WOO                       //
+//                                                               //
+///////////////////////////////////////////////////////////////////
 myApp.directive('draggable', function() {
     return {
         restrict: 'A',
@@ -19,19 +24,15 @@ myApp.directive('droppable', function() {
     }
 });
 
+///////////////////////////////////////////////////////////////////
+//                                                               //
+//                     DAT CONTROLLER WOO                        //
+//                                                               //
+///////////////////////////////////////////////////////////////////
 myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location", "AuthFactory", "EmailFactory", "UserFactory", function($scope, $http, $route, $location, AuthFactory, EmailFactory, UserFactory) {
     console.log("Loaded: Form Page Controller");
 
-    $scope.approveMember = function(user){
-      $http.put('/newRoute/approveMember', user).then(function(){
 
-        $http.get('/newRoute/users').then(function(data){
-          $scope.userData = data.data
-        })
-
-        console.log('updated ', user.display_name, "'s auth_level")
-      });
-    }
     $scope.showEmail = false;
     $scope.tab = 1;
     $scope.userData = [];
@@ -48,22 +49,15 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
     $scope.captainArray = [{
       member_name: 'Drew',
       study: "C#"
-
     },
     {
       member_name: 'Joe',
       study: "Python"
-
     },
     {
       member_name: 'Adam',
       study: "Java"
-
-    }
-
-  ];
-
-
+    }];
 
     $scope.sprintOverview = false;
     $scope.surveyResults = false;
@@ -78,14 +72,21 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
 
     $scope.creatingSprintButton = function() {
         $scope.showSprintMaker = true;
-
     }
 
+// worst button name ever - wtf? lol
     $scope.newButton = function(){
       $http.get('/newRoute/users').then(function(data){
         console.log('these are our users', data.data);
       });
     }
+
+
+    ///////////////////////////////////////////////////////////////////
+    //                                                               //
+    //                   GENERATE TEAM NAME CODE                     //
+    //                                                               //
+    ///////////////////////////////////////////////////////////////////
     $scope.genName = function(input) {
         // console.log(input);
         $scope.showNames = [];
@@ -99,12 +100,15 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
                 planet: celestialArray[randomNumber],
                 team: []
             });
-
-            // console.log($scope.showNames);
-            // console.log(randomNumber);
         }
     }
 
+
+    ///////////////////////////////////////////////////////////////////
+    //                                                               //
+    //                   UPDATE NAMES CODE BELOW                     //
+    //                                                               //
+    ///////////////////////////////////////////////////////////////////
     $scope.updateTeamName = function(name) {
         //eventually we can cute up this confirm box, see details in updatePerson()
         if (confirm("Are you Sure you want to Change this Info?\n\n\n If you hit cancel, you will see your changes, but they have not been saved. Refreshing will restart restore previous settings.\n\n\n")) {
@@ -149,67 +153,84 @@ myApp.controller("FormPageController", ["$scope", "$http", '$route', "$location"
         }
     }
 
+    ///////////////////////////////////////////////////////////////////
+    //                                                               //
+    //        APPROVE MEMBERS CODE (Change AUTH Levels)              //
+    //                                                               //
+    ///////////////////////////////////////////////////////////////////
 
-    //EMAIL STUFF BELOW
+    $scope.approveMember = function(user){
+      $http.put('/newRoute/approveMember', user).then(function(){
+        $http.get('/newRoute/users').then(function(data){
+          $scope.userData = data.data
+        })
+        console.log('updated ', user.display_name, "'s auth_level")
+      });
+    }
+
+    ///////////////////////////////////////////////////////////////////
+    //                                                               //
+    //                      EMAIL STUFF BELOW                        //
+    //                                                               //
+    ///////////////////////////////////////////////////////////////////
     $scope.emailInfo = {};
     $scope.emails = '';
 
 
     $scope.isActive = false;
     $scope.activeButton = function() {
-    $scope.isActive = !$scope.isActive;
-  }
+        $scope.isActive = !$scope.isActive;
+    }
 
-  $scope.isActive1 = false;
-  $scope.activeButton1 = function() {
-  $scope.isActive1 = !$scope.isActive1;
-  }
+    $scope.isActive1 = false;
+    $scope.activeButton1 = function() {
+        $scope.isActive1 = !$scope.isActive1;
+    }
 
-  $scope.isActive2 = false;
-  $scope.activeButton2 = function() {
-  $scope.isActive2 = !$scope.isActive2;
-}
+    $scope.isActive2 = false;
+    $scope.activeButton2 = function() {
+        $scope.isActive2 = !$scope.isActive2;
+    }
 
-$scope.isActive3 = false;
-$scope.activeButton3 = function() {
-$scope.isActive3 = !$scope.isActive3;
-}
+    $scope.isActive3 = false;
+    $scope.activeButton3 = function() {
+        $scope.isActive3 = !$scope.isActive3;
+    }
 
-$scope.isActive4 = false;
-$scope.activeButton4 = function() {
-$scope.isActive4 = !$scope.isActive4;
-}
+    $scope.isActive4 = false;
+    $scope.activeButton4 = function() {
+        $scope.isActive4 = !$scope.isActive4;
+    }
 
-$scope.isActive5 = false;
-$scope.activeButton5 = function() {
-$scope.isActive5 = !$scope.isActive5;
-}
+    $scope.isActive5 = false;
+    $scope.activeButton5 = function() {
+        $scope.isActive5 = !$scope.isActive5;
+    }
 
-$scope.isActive6 = false;
-$scope.activeButton6 = function() {
-$scope.isActive6 = !$scope.isActive6;
-}
+    $scope.isActive6 = false;
+    $scope.activeButton6 = function() {
+        $scope.isActive6 = !$scope.isActive6;
+    }
 
-$scope.isActive7 = false;
-$scope.activeButton7 = function() {
-$scope.isActive7 = !$scope.isActive7;
-}
+    $scope.isActive7 = false;
+    $scope.activeButton7 = function() {
+        $scope.isActive7 = !$scope.isActive7;
+    }
 
-$scope.isActive8 = false;
-$scope.activeButton8 = function() {
-$scope.isActive8 = !$scope.isActive8;
-}
+    $scope.isActive8 = false;
+    $scope.activeButton8 = function() {
+        $scope.isActive8 = !$scope.isActive8;
+    }
 
-$scope.isActive9 = false;
-$scope.activeButton9 = function() {
-$scope.isActive9 = !$scope.isActive9;
-}
+    $scope.isActive9 = false;
+    $scope.activeButton9 = function() {
+        $scope.isActive9 = !$scope.isActive9;
+    }
 
-$scope.isActive10 = false;
-$scope.activeButton10 = function() {
-$scope.isActive10 = !$scope.isActive10;
-}
-
+    $scope.isActive10 = false;
+    $scope.activeButton10 = function() {
+        $scope.isActive10 = !$scope.isActive10;
+    }
     var emailArray = [];
 
     $scope.addEmail = function(email) {
@@ -281,6 +302,13 @@ $scope.isActive10 = !$scope.isActive10;
     // }
 
 
+
+    ///////////////////////////////////////////////////////////////////
+    //                                                               //
+    //            BUILD $scope.userData ARRAY CODE BELOW:            //
+    //                         Members Page                          //
+    ///////////////////////////////////////////////////////////////////
+
     // getData('users').then(function(data) {
     //     // console.log(data);
     //     $scope.userData = data;
@@ -292,17 +320,59 @@ $scope.isActive10 = !$scope.isActive10;
       $scope.userData = data.data;
       console.log("$scope.userData et all: ", $scope.userData);
 
-      // extracts github username from profile url, assigns username property to data Obj
+      // used to show lawn on member page
+      // extracts github username from profile url
+      // assigns username property to data Obj
         data.data.forEach(function(value, i){
         // console.log("$scope.userData et all urls: ", value.github_url);
         var url = value.github_url;
-        $scope.githubUser = url.slice(19);
+        var githubUser = url.slice(19);
         // console.log("username: ", $scope.githubUser);
-        data.data[i].username = $scope.githubUser;
+        data.data[i].username = githubUser;
         // console.log("data: ", data.data);
-      })
 
-    })
+      }) //end forEach
+
+    }) // end http.get/users
+
+    $http.get('/newRoute/userz').then(function(data){
+      console.log("working?????: ", data.data);
+
+      // get today's date in db format
+      var today = new Date();
+      var dd = today.getDate();
+      var mm = today.getMonth()+1; //January is 0!
+      var yyyy = today.getFullYear();
+
+      if(dd<10) {
+          dd='0'+dd
+      }
+
+      if(mm<10) {
+          mm='0'+mm
+      }
+
+      today = yyyy+'-'+mm+'-'+dd;
+      console.log("today's date: ", today);
+
+      // check db against today's date
+      data.data.forEach(function(value, i){
+        var date = value.date;
+        var commitToday = value.did_commit;
+        if (today === date) {
+        console.log("matching date, did_commit t/f: ", date, commitToday);
+        // adds property did commit to each user in $scope.userData
+        $scope.userData[i].did_commit = commitToday;
+        // check commit true/false
+        if(commitToday == true) {
+          console.log("someone in the challenge committed");
+
+        }
+
+      }
+    }); // end forEach
+
+  }) // end http.get/userz
 
     // getData('sprint2').then(function(data) {
     //     // console.log(data);
@@ -317,9 +387,13 @@ $scope.isActive10 = !$scope.isActive10;
 
 
 
-    // SORTING HELL vvvvv
 
-    // DREWS CODE :D
+
+///////////////////////////////////////////////////////////////////
+//                                                               //
+//        DREWS SORTING CODE - DRAGGITY DROPPITY :D              //
+//                                                               //
+///////////////////////////////////////////////////////////////////
     $scope.handleDragStart = function(e) {
         this.style.opacity = '0.4';
 
@@ -362,65 +436,48 @@ $scope.isActive10 = !$scope.isActive10;
 
         $scope.$apply(function() {
 
-                  //TODO:
-                  //check captian list to see if they are captian
-                  //if captian -> change name
-                  //if player -> change number, planet.team
+            //TODO:
+            //check captian list to see if they are captian
+            //if captian -> change name
+            //if player -> change number, planet.team
 
 
             $scope.showNames.forEach(function(object, i) {
-              if (dataText.substring(0,6) == "member"){
-                console.log('gottem')
-                if (object.planet == tempString) {
-                    $scope.showNames[i].team.push(dataText.substring(6));
-                    console.log('current Team:', $scope.showNames[i].team);
-                    $scope.userData.forEach(function(captian, i) {
-
-                        if (captian.display_name == dataText.substring(6)) {
-                            $scope.userData.splice(i, 1);
-                        }
-                    })
-                }
-              }else {
-
-
-                if (object.captain == "no captain") {
-
+                if (dataText.substring(0, 6) == "member") {
+                    console.log('gottem')
                     if (object.planet == tempString) {
-                        $scope.showNames[i].captain = dataText;
-                        $scope.captainArray.forEach(function(user, i) {
-                            console.log(user.member_name, "=?=", dataText);
-                            if (user.member_name == dataText) {
-                                $scope.captainArray.splice(i, 1);
+                        $scope.showNames[i].team.push(dataText.substring(6));
+                        console.log('current Team:', $scope.showNames[i].team);
+                        $scope.userData.forEach(function(captian, i) {
+
+                            if (captian.display_name == dataText.substring(6)) {
+                                $scope.userData.splice(i, 1);
                             }
                         })
                     }
+                } else {
+
+
+                    if (object.captain == "no captain") {
+
+                        if (object.planet == tempString) {
+                            $scope.showNames[i].captain = dataText;
+                            $scope.captainArray.forEach(function(user, i) {
+                                console.log(user.member_name, "=?=", dataText);
+                                if (user.member_name == dataText) {
+                                    $scope.captainArray.splice(i, 1);
+                                }
+                            })
+                        }
+                    }
                 }
-              }
             })
         });
-    };
+        };
 
-    // $scope.deleteCaptain = function(object) {
-    //     getData('users').then(function(userz) {
-    //         var tempUserz = userz;
-    //         // console.log(userz);
-    //         tempUserz.forEach(function(theUser) {
-    //             // console.log(theUser, object.captain);
-    //
-    //             if (theUser.display_name == object.captain) {
-    //                 $scope.userData.push(theUser);
-    //             }
-    //         })
-    //         $scope.showNames.forEach(function(planet, i) {
-    //             if (object.planet == planet.planet) {
-    //                 $scope.showNames[i].captain = 'no captain';
-    //             }
-    //         })
-    //     })
-    // }
     $scope.deleteCaptain = function(object) {
         getData('sprint2').then(function(userz) {
+ //     getData('users').then(function(userz) {
             var tempUserz = userz;
             // console.log(userz);
             tempUserz.forEach(function(theUser) {
@@ -453,4 +510,4 @@ $scope.isActive10 = !$scope.isActive10;
     };
 
 
-}]);
+}]); // end controller

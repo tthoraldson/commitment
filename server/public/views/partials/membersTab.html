@@ -67,7 +67,7 @@
                         <!-- <a ng-click="addEmail('scott@primeacademy.io'); activeButton()">
                       </a> -->
                         <i ng-class="{'active': isActive}" class="fa fa-envelope" alt="Email" aria-hidden="true" ng-click="toggle ? toggleIcon() : toggleIcon()">
-                  </i>
+                        </i>
                     </a>
                 </div>
                 <div class="divcolumn">
@@ -83,22 +83,17 @@
                     <p>%</p>
                 </div>
                 <div class="divcolumn">
-                    <p>y/n</p>
+                    <p>{{user.did_commit}}</p>
                 </div>
                 <div class="divcolumn iconCol">
                     <!-- <p>Lawn</p> -->
                     <a ng-href="https://github.com/users/{{user.username}}/contributions" target="_blank">
-                    <i class="fa fa-th" aria-hidden="true"></i>
-                  </a>
+                        <i class="fa fa-th" aria-hidden="true"></i>
+                    </a>
                 </div>
             </div>
         </div>
-
-
-
     </div>
-
-
 </div>
 
 <!--

@@ -385,15 +385,14 @@ var eros = {size: 5, team: "eros",  isShowing: false, id: 8, array: [
               //  }
 
 
-$scope.dataArray = (deimos, linus, io, ida, gaspra, europa, dactyl, eros)
-// Awful Toggle Button Code - so not DRY
-// var colorArray =
-// ['#1f77b4', '#aec7e8', '#ff7f0e', '#ffdbb7', '#2ca02c',
-// '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5',
-// '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#1f655c',
-// '#0bc1bc', '#bcbd22', '#dbdb8d','#17becf', '#9edae5'];
+$scope.dataArray = (deimos, linus, io, ida, gaspra, europa, dactyl, eros);
 
 
+///////////////////////////////////////////////////////////////////
+//                                                               //
+//                   AWFUL TOGGLE BUTTON BELOW                   //
+//                          - so not DRY                         //
+///////////////////////////////////////////////////////////////////
               function toggleButtonAll(){
                 if ($scope.dataIsShowingAll == false){
                   $scope.dataIsShowingAll = true;

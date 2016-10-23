@@ -34,6 +34,34 @@ router.get('/users',function(req,res){
   });
 });
 
+// tryina get joined sql statement
+router.get('/userz',function(req,res){
+  pg.connect(connectionString, function(err, client, done) {
+      //console.log('Start!');
+      if (err) {
+          res.sendStatus(500);
+          //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, pg.connect", err, "\n \n \n \n");
+      }
+
+      var thequery =
+          "SELECT user_lawns.github, users.github_url, user_lawns.date, user_lawns.did_commit FROM users INNER JOIN user_lawns ON users.github_url LIKE CONCAT('%', user_lawns.github, '%') ORDER BY user_lawns.date DESC;"
+
+      client.query(thequery,
+          function(err, result) {
+              done(); //closes connection, I only can have ten :
+              if (err) {
+                  res.sendStatus(500);
+                  //console.log("\n \n \n \n!!!HEY ERROR CONSOLE LOG HERE!!!\n error in GET, client.query: ", err, "\n \n \n \n");
+                  return;
+              }
+              // //console.log('result: ', result.rows);
+
+              //console.log('GET REQ: grabbing ' + req.query.db + ' table from db')
+              res.send(result.rows)
+          })
+  });
+});
+
 
 //finds all commit data on sprint2
 router.get('/sprint2_data',function(req,res){

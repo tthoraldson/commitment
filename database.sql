@@ -43,6 +43,7 @@ email varchar(100)
 
 --holds full user lawn--
 CREATE TABLE user_lawns (
+id SERIAL PRIMARY KEY,
 github varchar(50),
 date varchar(30),
 did_commit boolean,
@@ -50,7 +51,12 @@ commits integer
 );
 
 
-
+-- query to join users to user_lawns - woo!
+SELECT user_lawns.github, users.github_url, user_lawns.date, user_lawns.did_commit
+FROM users
+INNER JOIN user_lawns
+ON users.github_url LIKE CONCAT('%', user_lawns.github, '%')
+ORDER BY user_lawns.date DESC;
 
 
 -- TEMPLATES FOR PG QUERIES
